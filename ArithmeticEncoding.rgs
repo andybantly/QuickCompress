@@ -1,0 +1,26 @@
+HKCR
+{
+	QuickCompress.ArithmeticEncoding.1 = s 'ArithmeticEncoding Class'
+	{
+		CLSID = s '{AAA064A8-BA1B-4B27-98BF-CFC6F4D76B22}'
+	}
+	QuickCompress.ArithmeticEncoding = s 'ArithmeticEncoding Class'
+	{
+		CLSID = s '{AAA064A8-BA1B-4B27-98BF-CFC6F4D76B22}'
+		CurVer = s 'QuickCompress.ArithmeticEncoding.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AAA064A8-BA1B-4B27-98BF-CFC6F4D76B22} = s 'ArithmeticEncoding Class'
+		{
+			ProgID = s 'QuickCompress.ArithmeticEncoding.1'
+			VersionIndependentProgID = s 'QuickCompress.ArithmeticEncoding'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{4869FEB9-2792-491A-861B-A94BAC41114E}'
+		}
+	}
+}

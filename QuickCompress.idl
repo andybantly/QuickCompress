@@ -1,0 +1,81 @@
+// QuickCompress.idl : IDL source for QuickCompress.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (QuickCompress.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(0C4C5E98-AA2C-4D62-93FA-0ACB9787CC8C),
+		dual,
+		helpstring("IHuffman Interface"),
+		pointer_default(unique)
+	]
+	interface IHuffman : IDispatch
+	{
+		[id(1), helpstring("method Compress")] HRESULT Compress(BYTE* pByteBufferIn,BYTE** ppByteBufferOut);
+		[id(2), helpstring("method Uncompress")] HRESULT Uncompress(BYTE* pByteBufferIn, BYTE** ppByteBufferOut);
+	};
+	[
+		object,
+		uuid(4AA929FA-419E-4DA3-B898-9B6B2D62CA87),
+		dual,
+		helpstring("IRunLength Interface"),
+		pointer_default(unique)
+	]
+	interface IRunLength : IDispatch
+	{
+		[id(1), helpstring("method Encode")] HRESULT Encode(BYTE* pByteBufferIn, UINT nbByteBufferIn, BYTE** ppByteBufferOut, UINT* pnbByteBufferOut);
+		[id(2), helpstring("method Decode")] HRESULT Decode(BYTE* pByteBufferIn, UINT nbByteBufferIn, BYTE** ppByteBufferOut, UINT* pnbByteBufferOut);
+	};
+
+[
+	object,
+	uuid(DF9D9093-0A42-4534-9998-A82E8BDA29EC),
+	dual,
+	nonextensible,
+	helpstring("IArithmeticEncoding Interface"),
+	pointer_default(unique)
+]
+interface IArithmeticEncoding : IDispatch
+{
+	[id(1), helpstring("method Encode")] HRESULT Encode(BYTE* pByteBufferIn, BYTE** ppByteBufferOut);
+	[id(2), helpstring("method Decode")] HRESULT Decode(BYTE* pByteBufferIn, BYTE** ppByteBufferOut);
+};
+[
+	uuid(4869FEB9-2792-491A-861B-A94BAC41114E),
+	version(1.0),
+	helpstring("QuickCompress 1.0 Type Library")
+]
+library QUICKCOMPRESSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(E418DC5F-41FE-426A-BE87-996E6188DF37),
+		helpstring("Huffman Class")
+	]
+	coclass Huffman
+	{
+		[default] interface IHuffman;
+	};
+	[
+		uuid(02A37EE2-DFEC-4EBB-82BC-DD6577A7F721),
+		helpstring("RunLength Class")
+	]
+	coclass RunLength
+	{
+		[default] interface IRunLength;
+	};
+	[
+		uuid(AAA064A8-BA1B-4B27-98BF-CFC6F4D76B22),
+		helpstring("ArithmeticEncoding Class")
+	]
+	coclass ArithmeticEncoding
+	{
+		[default] interface IArithmeticEncoding;
+	};
+};

@@ -1,0 +1,26 @@
+HKCR
+{
+	QuickCompress.Huffman.1 = s 'Huffman Class'
+	{
+		CLSID = s '{E418DC5F-41FE-426A-BE87-996E6188DF37}'
+	}
+	QuickCompress.Huffman = s 'Huffman Class'
+	{
+		CLSID = s '{E418DC5F-41FE-426A-BE87-996E6188DF37}'
+		CurVer = s 'QuickCompress.Huffman.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E418DC5F-41FE-426A-BE87-996E6188DF37} = s 'Huffman Class'
+		{
+			ProgID = s 'QuickCompress.Huffman.1'
+			VersionIndependentProgID = s 'QuickCompress.Huffman'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{4869FEB9-2792-491A-861B-A94BAC41114E}'
+		}
+	}
+}

@@ -1,0 +1,9 @@
+; QuickCompress.def : Declares the module parameters.
+
+LIBRARY      "QuickCompress.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE

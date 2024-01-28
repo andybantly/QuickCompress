@@ -1,0 +1,26 @@
+HKCR
+{
+	QuickCompress.RunLength.1 = s 'RunLength Class'
+	{
+		CLSID = s '{02A37EE2-DFEC-4EBB-82BC-DD6577A7F721}'
+	}
+	QuickCompress.RunLength = s 'RunLength Class'
+	{
+		CLSID = s '{02A37EE2-DFEC-4EBB-82BC-DD6577A7F721}'
+		CurVer = s 'QuickCompress.RunLength.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {02A37EE2-DFEC-4EBB-82BC-DD6577A7F721} = s 'RunLength Class'
+		{
+			ProgID = s 'QuickCompress.RunLength.1'
+			VersionIndependentProgID = s 'QuickCompress.RunLength'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{4869FEB9-2792-491A-861B-A94BAC41114E}'
+		}
+	}
+}
